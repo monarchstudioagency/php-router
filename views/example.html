@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <title>.creative | PHP Router</title>
+    <link rel="icon" href="/public/examples/favicon.png" type="image/png">
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="copyright" content="All Rights Reserved - Monarch Studio" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0">
+</head>
+<body>
+
+<main>
+    <p class="__c-text-center"><img id="__c-logo" src="/public/examples/logo-creative-monarch-studio.svg" alt="Creative Logo"></p>
+
+    <h1 class="__c-text-center">PHP Router</h1>
+
+    <h2>Introduction</h2>
+
+    <p>PHP Router is a simply and usefull php router created by <a href="https://www.monarchstudio.fr">Monarch Studio</a> and hosted on <a href="https://creative.monarchstudio.fr">.creative</a>.</p>
+    <p>Manage easily your routes and catch errors in one class.</p>
+
+    <hr>
+
+    <h2>Installation</h2>
+
+    <p>PHP Router uses composer to autoload class.</p>
+    <p>Download composer <a href="https://getcomposer.org/download/">here</a> and check <a href="https://getcomposer.org/doc/00-intro.md">documentation</a>. After installation, run composer :</p>
+
+    <div class="__c-code-block">
+        <code>php composer-setup.php --install-dir=bin --filename=composer</code><br>
+        <code>php composer.phar</code>
+    </div>
+
+    <hr>
+
+    <h2>Examples</h2>
+
+    <p>All routes are defined in <code>index.php</code>. You can call <code>POST</code>, <code>GET</code>, <code>PUT</code> or <code>DELETE</code> HTTP verb. You can add most in <code>Router.php</code> if you want.</p>
+
+    <div class="__c-code-block">
+        <small class="__c-pink">Here call a controller with 'CONTROLLER#METHO' schema.</small><br>
+        <code>$router->get('/', 'Example#show');</code><br>
+        <br>
+        <small class="__c-pink">Some example with other verbs and callable directly in function.</small><br>
+        <code>$router->post('/route-to-post', function(){ echo "Something to show"; });</code><br>
+        <code>$router->put('/route-to-put', function(){ echo "Something to show"; });</code><br>
+        <code>$router->delete('/route-to-delete', function(){ echo "Something to show"; });</code>
+    </div>
+
+    <h3>Dynamic values</h3>
+
+    <p>You can passed dynamic values in routes with <code>:key</code> schema.</p>
+
+    <div class="__c-code-block">
+        <small class="__c-pink">Here call a controller with 'CONTROLLER#METHO' schema and retrieve the id in $id parameter.</small><br>
+        <code>$router->get('/article/:id', 'Example#show');</code><br>
+        <br>
+        <small class="__c-pink">You can add multiple variables in one route</small><br>
+        <code>$router->get('/article/:id/:slug', function($id, $slug){ echo "My article " . $slug; });</code><br>
+        <code>$router->put('/article/:userId/:id', function($userId, $id){ echo "Article updated !"; });</code>
+    </div>
+
+    <hr>
+
+    <h2>Twig</h2>
+
+    <p>PHP Router include Twig if you want to use it. If you don't know what it is, <a href="https://twig.symfony.com/">visit the website.</a></p>
+
+    <p>This is exactly the same callables.</p>
+
+    <p>You can <a href="/twig">click here</a> and see the twig rendering view.</p>
+
+    <hr>
+
+    <h2>Licence</h2>
+
+    <p>Do what you want with this router, it's free. No licence. :)</p>
+
+    <hr>
+    <p class="__c-text-center">Created with ❤️ by <a href="https://www.monarchstudio.fr">monarch studio</a></p>
+
+</main>
+
+<style>
+    /*INIT*/
+    body {
+        background-color: #03020b;
+    }
+    body *:not(code) {
+        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+        color: #fff;
+    }
+    main {
+        max-width: 1070px;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-bottom: 3em;
+        margin: 0 auto;
+    }
+    hr {
+        border-top: 1px solid #1d1d20;
+        border-bottom: 0;
+        border-right: 0;
+        border-left: 0;
+        margin-top: 1.5em;
+    }
+    /*TYPO*/
+    h1 {
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 1.4px;
+        font-weight: 500;
+    }
+    h1, a, .__c-pink {
+        color: #ff2673 !important;
+    }
+    .__c-text-center {
+        text-align: center;
+    }
+    /*ELEMENTS*/
+    #__c-logo {
+        max-width: 400px;
+        width: 100%;
+    }
+    .__c-code-block {
+        background-color: #121213;
+        padding: 20px;
+        border-radius: 4px;
+    }
+</style>
+</body>
+</html>
